@@ -3,3 +3,116 @@
 
 @import "tailwindcss";
 
+.range-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .range-item .range-input {
+    margin-top: 6px;
+    position: relative;
+  }
+  
+  /* Hide native slider appearance */
+  .range-item .range-input input {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  /* Hide native slider thumb */
+  .range-item .range-input input::-webkit-slider-thumb,
+  .range-item .range-input input::-moz-range-thumb,
+  .range-item .range-input input::-ms-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  /* Hide native slider track */
+  .range-item .range-input input::-webkit-slider-runnable-track,
+  .range-item .range-input input::-moz-range-track,
+  .range-item .range-input input::-ms-track {
+    background: transparent;
+  }
+  
+  /* Marker list styling */
+  .range-item ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: calc(100% + 34.4px);
+    margin: 0 -17px;
+  }
+  .range-item ul .list-inline-item {
+    min-width: 58px;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 4px;
+    word-break: break-word;
+    color: #b1b1b1;
+    position: relative;
+  }
+  .range-item ul .list-inline-item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #696969;
+  }
+  .range-item ul .list-inline-item.active::before {
+    background-color: white;
+  }
+  
+  /* Custom track */
+  .range-item .range-line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 8px;
+    width: calc(100% - 14px);
+    background-color: #ddd;
+    z-index: 0;
+    margin: 0 7px;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  .range-item .range-line .active-line {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: green;
+    transition: all 0.1s ease;
+  }
+  
+  /* Custom dot */
+  .range-item .dot-line {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100% - 24px);
+    left: 0;
+    z-index: 1;
+  }
+  .range-item .dot-line .active-dot {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background-color: #ddd;
+    height: 24px;
+    width: 24px;
+    border: 4px solid green;
+    z-index: 11;
+    border-radius: 50%;
+  }
+  

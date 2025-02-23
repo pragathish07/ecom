@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Carousel from '../components/Carousel';
 import FeaturedProducts from '../components/Featured';
 import { Link } from 'react-router-dom';
+import { div } from 'framer-motion/client';
 
 const carouselItems = [
   {
@@ -100,7 +101,7 @@ function Home() {
       name: 'Storage & Organization',
       description: 'Cabinets, shelves, and organizers',
       itemCount: 156,
-      imageUrl: 'https://images.unsplash.com/photo-1558997519-83c9716b1b07',
+      imageUrl: 'https://unsplash.com/photos/modern-kitchen-interior-3d-rendering-design-concept-cSA93cMrpTk',
       imageAlt: 'Modern storage cabinet with minimalist design',
       imageCredit: 'Photo by Sidekix Media on Unsplash'
     },
@@ -178,13 +179,29 @@ function Home() {
       </section>
     );
   };
+
+
+  const AboutSection = () =>{
+    return (
+      <div>
+        <h1 className='text-2xl font-medium mt-10 m-2'>
+          Welcome to our store  
+        </h1>
+        <div>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id eos harum dignissimos excepturi facilis nihil velit ullam porro? Unde nam autem quae? Ad, porro voluptatum, cumque doloremque necessitatibus repellat aperiam laborum error beatae dolor architecto vitae sit magni, explicabo voluptatibus. Deleniti, sit labore consequatur saepe eius quod fuga! Omnis dolore illum dolorum doloremque cum labore veritatis nisi magnam sit ad. Quidem laborum quam ex omnis corporis, nihil repudiandae saepe quisquam totam nostrum eius! Sit perspiciatis, dignissimos alias praesentium qui, doloremque saepe provident modi, asperiores distinctio dolores ut. Ut sit odio, quas animi sunt repudiandae, enim maiores reprehenderit natus qui placeat debitis exercitationem tenetur voluptas beatae quidem, eaque omnis illo non assumenda nihil ab quam! Iusto voluptas inventore culpa et, ex id velit itaque voluptatibus ipsam nisi, incidunt dolore illum deserunt sequi accusamus, quis doloremque tempora? Reiciendis quas ea, natus enim obcaecati praesentium magni! Autem eaque laborum et deleniti deserunt laboriosam maiores cupiditate necessitatibus placeat at consectetur, illo ex sint sed fugit in veniam cumque accusamus, excepturi repellendus error. Aut non odio soluta! Velit nemo cupiditate id facilis qui quidem consequuntur aspernatur vero facere, quia voluptatem quam reiciendis nihil unde, officia similique quaerat deleniti, molestiae sed. At perferendis ex porro distinctio.</p>
+          <Link to={"/about"}>read more..</Link>
+        </div>
+      </div>
+    )
+  }
   
 
   return (
-    <div>
+    <div  className=''>
         <Carousel />
         <CategorySection />
         <FeaturedProducts />
+        <AboutSection />
      </div>
   );
 }

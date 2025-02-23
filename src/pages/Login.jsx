@@ -40,13 +40,13 @@ const Login = () => {
           className="w-full p-2 border rounded mb-3"
           required
         />
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
+        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded cursor-pointer">
           Login
         </button>
       </form>
       <button
         onClick={signInWithGoogle}
-        className="w-full bg-red-500 text-white p-2 rounded mt-4"
+        className="w-full bg-red-500 text-white p-2 rounded mt-4 cursor-pointer"
       >
         Sign in with Google
       </button>

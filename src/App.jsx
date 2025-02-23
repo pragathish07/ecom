@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Footer from './components/Footer';
+import CartPage from './pages/Cart';
 
 // Lazy load pages for better performance
 const Home = React.lazy(() => import('./pages/Home'));
@@ -23,6 +24,18 @@ const LoadingSpinner = () => (
 );
 
 
+const products = [
+  { id: 1, name: "Fully Automatic Top Load Washing Machine", category: "Appliances", image: "washing-machine.jpg" },
+  { id: 2, name: "Sofa Set", category: "Living Room", image: "sofa.jpg" },
+  { id: 3, name: "Dining Table", category: "Dining", image: "dining.jpg" },
+  { id: 4, name: "Bed Frame", category: "Bedroom", image: "bed.jpg" },
+  { id: 5, name: "Refrigerator", category: "Appliances", image: "fridge.jpg" },
+  { id: 6, name: "Microwave Oven", category: "Kitchen", image: "microwave.jpg" },
+  { id: 7, name: "Bookshelf", category: "Storage", image: "bookshelf.jpg" },
+  { id: 8, name: "Office Chair", category: "Office", image: "chair.jpg" },
+  { id: 9, name: "Work Desk", category: "Office", image: "desk.jpg" },
+  { id: 10, name: "Wardrobe", category: "Bedroom", image: "wardrobe.jpg" },
+];
 
 const App = () => {
   const [showLocationModal, setShowLocationModal] = useState(false);
@@ -44,10 +57,10 @@ const App = () => {
   return (
     <AuthProvider>
         <Router>
-        <div className="min-h-screen bg-gray-50">
-          <Navbar />
+        <div className="">
+          <Navbar products={products}/>
           <LocationModal isOpen={showLocationModal} onLocationSelect={handleLocationSelect} />
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main className="w-[92vw] px-4 sm:px-6 mt-2 flex flex-col justify-center mx-auto">
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -55,6 +68,8 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/category/:categoryId" element={<CategoryPage />} />
                 <Route path="/product/:productId" element={<ProductPage />} />
+                <Route path="/cart" element={<CartPage />} />
+
                 <Route
                     path="/dashboard"
                     element={
