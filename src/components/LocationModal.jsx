@@ -18,7 +18,7 @@ function LocationModal({isOpen, onLocationSelect}) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 bg- bg-opacity-30 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 bg-white/30 backdrop-blur-sm backdrop-saturate-150 z-50 flex items-center justify-center">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

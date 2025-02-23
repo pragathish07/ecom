@@ -78,7 +78,7 @@ const ProductPage = () => {
         {/* Product Image */}
         <div>
           <img
-            src={product.image || 'https://via.placeholder.com/800'}
+            src={product.image}
             alt={product.name }
             className="w-full h-96 object-cover rounded-lg shadow-md"
           />

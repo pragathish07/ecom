@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense ,useEffect, useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import LocationModal from './components/LocationModal';
@@ -14,6 +14,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
 const ProductPage = React.lazy(() => import('./pages/ProductPage'));
 
+
 // Loading component for suspense fallback
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -21,13 +22,31 @@ const LoadingSpinner = () => (
   </div>
 );
 
+
+
 const App = () => {
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  
+  useEffect(() => {
+    const hasSeenLocationModal = localStorage.getItem("hasSeenLocationModal");
+
+    if (!hasSeenLocationModal) {
+      setShowLocationModal(true);
+      localStorage.setItem("hasSeenLocationModal", "true"); // Set flag in localStorage
+    }
+  }, []);
+  
+  const handleLocationSelect = (location) => {
+    console.log('Selected Location:', location);
+    setShowLocationModal(false); // Hide modal after selection
+  };
+
   return (
     <AuthProvider>
         <Router>
         <div className="min-h-screen bg-gray-50">
           <Navbar />
-          <LocationModal />
+          <LocationModal isOpen={showLocationModal} onLocationSelect={handleLocationSelect} />
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>

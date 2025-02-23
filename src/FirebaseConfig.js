@@ -4,12 +4,12 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChang
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAgDRBeneSXnnBTIXtWm1VSSYKGDFr42ks",
-  authDomain: "fir-auth-a3bd5.firebaseapp.com",
-  projectId: "fir-auth-a3bd5",
-  storageBucket: "fir-auth-a3bd5.firebasestorage.app",
-  messagingSenderId: "204369367907",
-  appId: "1:204369367907:web:6ffd2f3ce4e2998eadf956"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

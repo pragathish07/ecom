@@ -144,7 +144,7 @@ function Home() {
               <div className="aspect-[4/3] relative overflow-hidden">
                 {/* For demonstration, using placeholder. In production, use category.imageUrl */}
                 <img
-                  src={`/api/placeholder/800/600`}
+                  src={category.imageUrl}
                   alt={category.imageAlt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
